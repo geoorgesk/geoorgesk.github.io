@@ -20,27 +20,35 @@
       overflow-x: hidden;
     }
 
-    header {
-      background: #0f2027;
-      background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
-      color: #fff;
-      padding: 80px 20px;
-      text-align: center;
-      animation: fadeIn 1.5s ease-out;
-    }
+   header {
+  background-color: #ff9000; 
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  font-weight: bold;
+  padding: 80px 20px;
+  text-align: center;
+  animation: fadeIn 1.5s ease-out;
+}
+
+
 
     header h1 {
+      font-weight: bold;
       font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
     header p {
       font-size: 1.2rem;
+      align-self: flex-end;
+      margin-top: 30px;
       opacity: 0.9;
     }
 
     nav {
-      background-color: #fff;
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
       gap: 30px;
@@ -93,6 +101,18 @@
       margin-top: 40px;
     }
 
+    .title{
+      font-size: 2.5rem;
+      color: #000000;
+      font-weight: bold;
+      margin-bottom: 10px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .bg {
+      background-color: #000000;
+      color:#ffffff
+    }
     /* Animations */
     @keyframes fadeIn {
       from { opacity: 0 }
@@ -112,11 +132,11 @@
     }
   </style>
 </head>
-<body>
+<body class="bg">
 
   <header>
-    <h1>Hello, I'm George</h1>
-    <p>Computer Science & Cybersecurity Student | Web Enthusiast</p>
+    <h1 class="title"> I'm George S kakkaserry</h1>
+    <p>Computer Science & Cybersecurity Student </p>
   </header>
 
   <nav>
@@ -125,7 +145,7 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
+  <section id="about" class="bg">
     <h2>About Me</h2>
     <p>
       I'm a B.Tech student specializing in Computer Science and Cybersecurity. 
@@ -133,7 +153,7 @@
     </p>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="bg">
     <h2>My Projects</h2>
     <div class="projects">
       <div class="project-card">
@@ -151,7 +171,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="bg">
     <h2>Contact Me</h2>
     <p>Email: george@example.com</p>
     <p>GitHub: github.com/georgeskakkassery</p>
