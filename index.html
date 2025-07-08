@@ -9,7 +9,7 @@
 <body class="bg">
 
   <header>
-    <h1 class="title"> I'm George S Kakkaserry</h1>
+    <h1 class="big-name js-title" > I'm George S Kakkaserry</h1>
     <p>Computer Science & Cybersecurity Student </p>
   </header>
 
@@ -67,6 +67,20 @@
       menu.style.display = 'none';
     }
   });
+
+
+  const title = document.querySelector('.js-title');
+
+  title.addEventListener('dblclick', function() {
+    if(title.innerHTML!=='I am Batman'){
+      title.innerHTML='I am Batman'
+  }
+  else{
+    title.innerHTML='I am George S Kakkaserry'
+  }
+  }    
+);
+
 </script>
 
 </body>
