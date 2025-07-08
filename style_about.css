@@ -22,8 +22,8 @@ body {
 }
 
 .profile-photo {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -34,7 +34,8 @@ body {
   display: block;
   margin: 10px 0;
   text-decoration: none;
-  color: #ff9000;
+  color: #000000;
+  font-size: 20px;
   font-weight: 500;
   transition: 0.2s;
 }
@@ -50,8 +51,9 @@ body {
 }
 
 .big-name {
-  font-size: 4vw;
+  font-size: 6vw;
   color: #222;
+  margin-top: 6px;
   animation: fadeIn 2s ease-out;
 }
 
