@@ -4,6 +4,47 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me - George SK</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style_about.css" />
 </head>
 <body>
+
+  <!-- Hamburger Menu -->
+  <div class="hamburger-container">
+    <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="#project">Project</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <h1>About Me</h1>
+    <p>Hello! I'm <strong>George SK</strong>, a passionate Computer Science and Cybersecurity student based in Kerala. I love building web projects, solving problems, and learning new technologies that improve everyday life.</p>
+    
+    <p>With a foundation in Python, C, and front-end development, I’m always looking for ways to combine technical skill with creativity. When I’m not coding, you’ll probably find me at church, working on fitness, or planning ideas with friends.</p>
+
+    <p>This website is a space where I share my projects, skills, and contact info — thanks for visiting!</p>
+  </section>
+
+  
+
+  <!-- JavaScript for menu -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('hamburgerMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    window.addEventListener('click', function (e) {
+      const menu = document.getElementById('hamburgerMenu');
+      const icon = document.querySelector('.hamburger-icon');
+      if (!icon.contains(e.target) && !menu.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
