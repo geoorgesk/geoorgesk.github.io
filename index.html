@@ -71,14 +71,18 @@
 
   const title = document.querySelector('.js-title');
 
-  title.addEventListener('dblclick', function() {
-    if(title.innerHTML!=='I am Batman'){
-      title.innerHTML='I am Batman'
-  }
-  else{
-    title.innerHTML='I am George S Kakkaserry'
-  }
-  }    
+  title.addEventListener('mouseover', function() {
+
+      title.innerHTML='I am Kakkasserygeorges'
+
+  }   
+) 
+
+  title.addEventListener('mouseout', function() {
+
+      title.innerHTML='I am  George S Kakkaserry'
+
+  } 
 );
 
 </script>
