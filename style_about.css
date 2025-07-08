@@ -7,6 +7,107 @@ body {
   color: #222;
   line-height: 1.7;
 }
+.about-container {
+  display: flex;
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 20px;
+  gap: 40px;
+}
+
+/* Left Column */
+.left-column {
+  flex: 1;
+  text-align: center;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.section-links a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #ff9000;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.section-links a:hover {
+  color: black;
+  transform: translateX(5px);
+}
+
+/* Right Column */
+.right-column {
+  flex: 2;
+}
+
+.big-name {
+  font-size: 4vw;
+  color: #222;
+  animation: fadeIn 2s ease-out;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 20px;
+}
+
+/* Section Styling Below */
+section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+section h2 {
+  color: #222;
+  font-size: 2rem;
+}
+
+section p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Simple fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .right-column {
+    text-align: center;
+  }
+
+  .big-name {
+    font-size: 6vw;
+  }
+}
+
 
 /* Typography */
 h1, h2 {
