@@ -1,4 +1,4 @@
-/* === Base Reset === */
+/* === Reset & Base === */
 * {
   margin: 0;
   padding: 0;
@@ -95,6 +95,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
+  position: relative;
 }
 
 .project-card:hover {
@@ -105,6 +106,7 @@ body {
   font-size: 1.8rem;
   color: #ffffff;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .project-card p {
@@ -112,7 +114,30 @@ body {
   font-size: 1rem;
 }
 
-/* === Animation === */
+/* === Expandable Project Content === */
+.project-details {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  margin-top: 15px;
+}
+
+.project-card.active .project-details {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+/* === Images in Project Details === */
+.project-details img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* === Fade Animation for Heading === */
 @keyframes fadeInDown {
   from {
     opacity: 0;
