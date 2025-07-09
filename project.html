@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - George SK</title>
+  <link rel="stylesheet" href="style_project.css" />
+</head>
+<body>
+
+  <!-- 🍔 Hamburger Menu -->
+  <div class="hamburger-container">
+    <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
+    <div class="hamburger-menu" id="hamburgerMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+    </div>
+  </div>
+
+  <!-- 🧱 Header Section -->
+  <section class="projects-header">
+    <h1 class="big-heading">Projects</h1>
+    <p>Here are some of the things I've built or contributed to. More coming soon!</p>
+  </section>
+
+  <!-- 📁 Project Cards -->
+  <section class="project-list">
+
+    <div class="project-card">
+      <h2>🚌 NxtStop</h2>
+      <p>A rural bus tracking web app designed to help daily commuters access private buses in real-time. Built using HTML, CSS, and JavaScript.</p>
+    </div>
+
+    <div class="project-card">
+      <h2>🔐 SecureLogin Demo</h2>
+      <p>A simple login system with front-end validations that demonstrates basic web security practices and clean UI design.</p>
+    </div>
+
+    <div class="project-card">
+      <h2>📊 Push-Up Tracker</h2>
+      <p>A personal fitness tracker for logging daily push-ups and visualizing progress — part of my fitness + discipline goal.</p>
+    </div>
+
+    <!-- Add more project cards here if needed -->
+
+  </section>
+
+  <!-- 🔁 JS for Hamburger Menu -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('hamburgerMenu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    window.addEventListener('click', function (e) {
+      const menu = document.getElementById('hamburgerMenu');
+      const icon = document.querySelector('.hamburger-icon');
+      if (!icon.contains(e.target) && !menu.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
