@@ -40,8 +40,16 @@
           <li>Searchable bus routes</li>
           <li>Lightweight UI for rural users</li>
         </ul>
-        <img src="nxtstop.jpg" alt="NxtStop Screenshot 1" />
-        <img src="images/nxtstop2.png" alt="NxtStop Screenshot 2" />
+      <div class="thumbnail-wrapper">
+  <img src="nxtstop.jpg" class="project-thumbnail" onclick="openModal(event, this)" />
+</div>
+
+<div class="thumbnail-wrapper">
+  <img src="nxtstop1.png" class="project-thumbnail" onclick="openModal(event, this)" />
+</div>
+
+
+
       </div>
     </div>
 
@@ -60,26 +68,48 @@
 
   <!-- 🔁 JavaScript for Toggle -->
   <script>
-    // Toggle hamburger menu
-    function toggleMenu() {
-      const menu = document.getElementById('hamburgerMenu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
+  // Toggle hamburger menu
+  function toggleMenu() {
+    const menu = document.getElementById('hamburgerMenu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
 
-    // Close menu if clicked outside
-    window.addEventListener('click', function (e) {
-      const menu = document.getElementById('hamburgerMenu');
-      const icon = document.querySelector('.hamburger-icon');
-      if (!icon.contains(e.target) && !menu.contains(e.target)) {
-        menu.style.display = 'none';
-      }
-    });
-
-    // Toggle project details
-    function toggleDetails(card) {
-      card.classList.toggle('active');
+  // Close menu if clicked outside
+  window.addEventListener('click', function (e) {
+    const menu = document.getElementById('hamburgerMenu');
+    const icon = document.querySelector('.hamburger-icon');
+    if (!icon.contains(e.target) && !menu.contains(e.target)) {
+      menu.style.display = 'none';
     }
-  </script>
+  });
+
+  // Toggle project details
+  function toggleDetails(card) {
+    card.classList.toggle('active');
+  }
+
+  // Open image modal
+ function openModal(event, image) {
+  event.stopPropagation(); // ⛔ Prevents card toggle
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  modal.style.display = "flex";
+  modalImg.src = image.src;
+}
+
+
+  // Close image modal
+  function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+  }
+</script>
+
+  <!-- 🔍 Image Modal -->
+<div id="imageModal" class="modal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImg" alt="Enlarged Project Image" />
+</div>
+
 
 </body>
 </html>
