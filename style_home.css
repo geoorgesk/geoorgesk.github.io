@@ -18,6 +18,17 @@
       cursor: pointer;
       user-select: none;
     }
+    .github-graph {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.github-graph img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ffcc44;
+}
+
 
     .hamburger-menu {
       display: none;
@@ -91,26 +102,7 @@
       opacity: 0.9;
     }
 
-    nav {
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 15px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      animation: fadeIn 2s ease-out;
-    }
-
-    nav a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #2c5364;
-    }
+   
 
     section {
       padding: 60px 20px;
@@ -119,24 +111,7 @@
       animation: fadeInUp 1s ease-out;
     }
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .project-card {
-      background: #ffffff;
-      color:#000000;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
+    
 
     footer {
       text-align: center;
