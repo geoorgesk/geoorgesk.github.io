@@ -1,27 +1,47 @@
-.hamburger-container {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-    .big-name {
-  font-size: 6vw;
-  color: #222;
-  margin-top: 6px;
-  animation: fadeIn 2s ease-out;
-}
 
-
-    .hamburger-icon {
-      font-size: 28px;
-      color: #000000;
-      cursor: pointer;
-      user-select: none;
-    }
     .github-graph {
   text-align: center;
   padding: 40px 20px;
 }
+/* NAVIGATION BAR */
+.navbar {
+  background-color: #000000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* keep it on top of other stuff */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9000;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ff9000;
+  font-size: 16px;
+  transition: color 0.3s;
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  color: orange;
+}
+
 
 .github-graph img {
   max-width: 100%;
@@ -31,36 +51,7 @@
 }
 
 
-    .hamburger-menu {
-      display: none;
-      position: absolute;
-      top: 40px;
-      right: 0;
-     
-      background: rgb(0, 0, 0);
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 150px;
-      text-align: left;
-    }
-
-    .hamburger-menu a {
-      display: block;
-      padding: 12px 16px;
-      text-decoration: none;
-      color: #ffffff;
-      border-bottom: 1px solid #eee;
-      font-size: 14px;
-    }
-
-    .hamburger-menu a:last-child {
-      border-bottom: none;
-    }
-
-    .hamburger-menu a:hover {
-      background-color: #ff9000;
-    }
+   
     /* Reset */
     * {
       margin: 0;
