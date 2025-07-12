@@ -21,6 +21,18 @@ body {
   text-align: center;
 }
 
+.all-section {
+  background-color: #111;      
+  color: #f0f0f0;              
+  padding: 60px;
+  width: 90%;
+  margin: 50px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.3); /* Orange glow */
+  transition: all 0.3s ease;
+}
+
+
 .profile-photo {
   width: 200px;
   height: 200px;
@@ -29,6 +41,13 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
 }
+.section-title {
+  color: #ff9900;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
 
 .section-links a {
   display: block;
