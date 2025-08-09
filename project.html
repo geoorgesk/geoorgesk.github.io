@@ -53,11 +53,28 @@
       </div>
     </div>
 
-    <!-- Other Project -->
-    <div class="project-card">
-      <h2>🔐 SecureLogin Demo</h2>
-      <p>A simple login system with front-end validations demonstrating basic web security practices.</p>
+<!-- Solar System Project -->
+<div class="project-card" onclick="toggleDetails(this)">
+  <h2>🌌 Interactive Solar System</h2>
+  <p>An interactive Solar System that shows planet facts and random fun facts, with an ESP32 and DHT11 sensor to auto-cycle planets based on environmental data.</p>
+
+  <div class="project-details">
+    <p><strong>Project Overview:</strong> An interactive Solar System that shows planet facts and random fun facts, with an ESP32 and DHT11 sensor to auto-cycle planets based on environmental data.</p>
+    <p><strong>Features:</strong></p>
+    <ul>
+      <li>Interactive Planet Facts – Click on any planet to view detailed facts and a random fun fact.</li>
+      <li>Auto Planet Selection – ESP32 with DHT11 sensor cycles planets automatically using temperature and humidity data.</li>
+      <li>Engaging Learning Experience – Combines astronomy with IoT for an educational and fun interface.</li>
+    </ul>
+    <div class="thumbnail-wrapper">
+      <img src="image-2.png" class="project-thumbnail" onclick="openModal(event, this)" />
     </div>
+    <div class="thumbnail-wrapper">
+      <img src="image-1.png" class="project-thumbnail" onclick="openModal(event, this)" />
+    </div>
+  </div>
+</div>
+
 
     <div class="project-card">
       <h2>📊 Push-Up Tracker</h2>
