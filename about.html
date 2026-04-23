@@ -3,113 +3,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me - George SK</title>
+  <title>About Me — George S Kakkassery</title>
+  <meta name="description" content="Learn about George S Kakkassery — a passionate Cybersecurity student from Kerala building purposeful tech projects." />
   <link rel="stylesheet" href="style_about.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Hamburger Menu -->
-  <div class="hamburger-container">
-    <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
-    <div class="hamburger-menu" id="hamburgerMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="project.html">Project</a>
-      <a href="#contact">Contact</a>
+  <!-- Ambient background orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">GSK<span class="logo-dot">.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About</a></li>
+      <li><a href="project.html" class="nav-link">Projects</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero / Intro -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-photo-wrapper">
+        <div class="photo-ring"></div>
+        <img src="picofme.png" alt="George SK" class="profile-photo" />
+      </div>
+      <div class="about-intro">
+        <p class="about-greeting">About Me</p>
+        <h1 class="about-name">George S Kakkassery</h1>
+        <p class="about-bio">
+          I'm a passionate Cybersecurity student from Kerala, building cool tech projects with purpose and learning along the way.
+        </p>
+        <nav class="about-quick-links">
+          <a href="#skills" class="pill-link" id="skillsLink">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Skills
+          </a>
+          <a href="#goals" class="pill-link" id="goalsLink">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Goals
+          </a>
+          <a href="#fun" class="pill-link" id="funLink">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h.01M15 12h.01M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/><circle cx="12" cy="12" r="10"/></svg>
+            Fun Facts
+          </a>
+        </nav>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="about-container">
-  <!-- LEFT COLUMN -->
-  <div class="left-column">
-    <img src="picofme.png" alt="George SK" class="profile-photo" />
+  <!-- Skills Section -->
+  <section id="skills" class="content-section reveal">
+    <div class="section-header">
+      <span class="section-tag">Expertise</span>
+      <h2 class="section-title">My Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card" id="progLangCard">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Programming Languages</h3>
+        <ul>
+          <li>Python (Beginner to Intermediate)</li>
+          <li>C (Strong foundation in logic building)</li>
+          <li>HTML5, CSS3, JavaScript (for web development)</li>
+        </ul>
+      </div>
+      <div class="skill-card" id="webDevCard">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Web Development</h3>
+        <ul>
+          <li>Creating clean UI layouts with HTML & CSS</li>
+          <li>Basic interactivity with JavaScript</li>
+          <li>Simple animations using CSS</li>
+        </ul>
+      </div>
+      <div class="skill-card" id="toolsCard">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Tools & Platforms</h3>
+        <ul>
+          <li>Git and GitHub (version control and project sharing)</li>
+          <li>VS Code (code editor of choice)</li>
+          <li>Canva & Figma (for simple UI design/mockups)</li>
+        </ul>
+      </div>
+      <div class="skill-card" id="softSkillsCard">
+        <div class="skill-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Soft Skills</h3>
+        <ul>
+          <li>Team player — works well in group projects</li>
+          <li>Quick learner — picks up new tools and concepts fast</li>
+          <li>Consistent — shows up and sticks to goals</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <nav class="section-links">
-      <a href="#skills">Skills</a>
-      <a href="#goals">Goals</a>
-    
-      <a href="#fun">Fun Facts</a>
-    </nav>
-  </div>
+  <!-- Goals Section -->
+  <section id="goals" class="content-section reveal">
+    <div class="section-header">
+      <span class="section-tag">Ambitions</span>
+      <h2 class="section-title">My Goals</h2>
+    </div>
+    <div class="goals-list">
+      <div class="goal-item">
+        <div class="goal-number">01</div>
+        <p>Become a skilled ethical hacker and cybersecurity expert</p>
+      </div>
+      <div class="goal-item">
+        <div class="goal-number">02</div>
+        <p>Build practical tools and projects that solve real-world problems — especially in rural communities</p>
+      </div>
+      <div class="goal-item">
+        <div class="goal-number">03</div>
+        <p>Continuously improve my programming and problem-solving abilities</p>
+      </div>
+      <div class="goal-item">
+        <div class="goal-number">04</div>
+        <p>Develop public speaking and communication skills to confidently share my ideas</p>
+      </div>
+      <div class="goal-item">
+        <div class="goal-number">05</div>
+        <p>Stay consistent with personal goals — like improving physical fitness and discipline</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="right-column">
-    <h1 class="big-name">George S Kakkassery</h1>
-    <p class="intro-text">
-      I'm a passionate Cybersecurity student from Kerala, building cool tech projects with purpose and learning along the way.
-    </p>
-  </div>
-</div>
+  <!-- Fun Facts Section -->
+  <section id="fun" class="content-section reveal">
+    <div class="section-header">
+      <span class="section-tag">Personal</span>
+      <h2 class="section-title">Fun Facts About Me</h2>
+    </div>
+    <div class="fun-grid">
+      <div class="fun-card">
+        <span class="fun-emoji">💪</span>
+        <p>I can do over 40 push-ups — aiming for 100 by the end of the year</p>
+      </div>
+      <div class="fun-card">
+        <span class="fun-emoji">⛪</span>
+        <p>I go to church every day — it's part of my daily routine and helps me stay grounded</p>
+      </div>
+      <div class="fun-card">
+        <span class="fun-emoji">🔧</span>
+        <p>I love experimenting with tech and trying out random ideas just for fun</p>
+      </div>
+      <div class="fun-card">
+        <span class="fun-emoji">🚴</span>
+        <p>I enjoy long bike rides to places with friends</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 George SK. All rights reserved.</p>
+    </div>
+  </footer>
 
-<section id="skills" class="all-section">
-  <h2 class="section-title">My Skills</h2>
-  <h4> Programming Languages</h4>
-  <ul>
-    <li>Python (Beginner to Intermediate)</li>
-    <li>C (Strong foundation in logic building)</li>
-    <li>HTML5, CSS3, JavaScript (for web development)</li>
-  </ul>
-
-  <h4> Web Development</h4>
-  <ul>
-    <li>Creating clean UI layouts with HTML & CSS</li>
-    <li>Basic interactivity with JavaScript</li>
-    <li>Simple animations using CSS</li>
-  </ul>
-
-
-  <h4> Tools & Platforms</h4>
-  <ul>
-    <li>Git and GitHub (version control and project sharing)</li>
-    <li>VS Code (code editor of choice)</li>
-    <li>Canva & Figma (for simple UI design/mockups)</li>
-  </ul>
-
-  <h4>Soft Skills</h4>
-  <ul>
-    <li>Team player — works well in group projects</li>
-    <li>Quick learner — picks up new tools and concepts fast</li>
-    <li>Consistent — shows up and sticks to goals (like your push-up progress)</li>
-  </ul>
-
-</section>
-
-<section id="goals" class="all-section">
-  <h2 class="section-title"> My Goals</h2>
-  <ul>
-    <li> Become a skilled ethical hacker and cybersecurity expert</li>
-    <li> Build practical tools and projects that solve real-world problems — especially in rural communities</li>
-    <li> Continuously improve my programming and problem-solving abilities</li>
-    <li> Develop public speaking and communication skills to confidently share my ideas</li>
-    <li> Stay consistent with personal goals — like improving physical fitness and discipline</li>
-  </ul>
-</section>
-
-<section id="fun" class="all-section">
-  <h2 class="section-title">Fun Facts About Me</h2>
-  <ul>
-    <li> I can do over 40 push-ups — aiming for 100 by the end of the year</li>
-    <li> I go to church every day — it's part of my daily routine and helps me stay grounded</li>
-    <li> I love experimenting with tech and trying out random ideas just for fun</li>
-    <li> I enjoy long bike rides to places  with friends</li>
-  </ul>
-</section>
-
-
-  <!-- JavaScript for menu -->
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('hamburgerMenu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-    window.addEventListener('click', function (e) {
-      const menu = document.getElementById('hamburgerMenu');
-      const icon = document.querySelector('.hamburger-icon');
-      if (!icon.contains(e.target) && !menu.contains(e.target)) {
-        menu.style.display = 'none';
-      }
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+      });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
   </script>
+
 </body>
 </html>

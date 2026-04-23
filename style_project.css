@@ -1,231 +1,539 @@
+/* ============================================
+   George SK Portfolio — Projects Page Styles
+   Premium Dark Theme with Glassmorphism
+   ============================================ */
+
+/* === CSS Custom Properties === */
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --text-primary: #f0f0f0;
+  --text-secondary: #888;
+  --text-muted: #555;
+  --accent: #a78bfa;
+  --accent-dim: rgba(167, 139, 250, 0.15);
+  --accent-glow: rgba(167, 139, 250, 0.3);
+  --gradient-1: linear-gradient(135deg, #a78bfa, #6d28d9);
+  --gradient-2: linear-gradient(135deg, #6d28d9, #4c1d95);
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 /* === Reset & Base === */
-* {
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0e0e0e;
-  color: #f5f5f5;
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
   line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* === Hamburger Menu === */
-.hamburger-container {
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* === Ambient Background Orbs === */
+.orb {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.hamburger-icon {
-  font-size: 28px;
-  cursor: pointer;
-  user-select: none;
-  color: #ffffff;
+.orb-1 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.2), transparent 70%);
+  top: 10%;
+  left: -200px;
+  animation: orbFloat1 24s ease-in-out infinite;
 }
 
-.hamburger-menu {
-  display: none;
-  position: absolute;
-  top: 40px;
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(109, 40, 217, 0.15), transparent 70%);
+  bottom: 5%;
+  right: -100px;
+  animation: orbFloat2 30s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, -60px) scale(1.1); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-60px, 40px) scale(1.15); }
+}
+
+/* === Navigation === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   right: 0;
-  background: #1b1b1b;
-  border: 1px solid #444;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-  width: 160px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  transition: all var(--transition-smooth);
 }
 
-.hamburger-menu a {
+.navbar.scrolled {
+  padding: 14px 48px;
+  background: rgba(5, 5, 5, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-dot { color: var(--accent); }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: 100px;
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-glass);
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+  background: var(--accent-dim);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1001;
+}
+
+.nav-toggle span {
   display: block;
-  padding: 12px 16px;
-  text-decoration: none;
-  color: #f5f5f5;
-  border-bottom: 1px solid #333;
-  font-size: 14px;
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-.hamburger-menu a:last-child {
-  border-bottom: none;
-}
+.nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-.hamburger-menu a:hover {
-  background-color: #222;
-  color: #ff9000;
-}
-
-/* === Page Header === */
-.projects-header {
+/* === Projects Hero === */
+.projects-hero {
+  position: relative;
+  z-index: 1;
+  padding: 160px 48px 80px;
   text-align: center;
-  padding: 100px 20px 40px;
 }
-.thumbnail-wrapper {
-  width: 150px;
-  height: auto;
-  overflow: hidden;           /* keeps zoomed image inside */
-  margin-right: 20px;         /* space between thumbnails */
-  margin-bottom: 20px;
+
+.section-tag {
   display: inline-block;
-}
-
-
-.big-heading {
-  font-size: 5vw;
-  font-weight: 900;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: #ff9000;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  animation: fadeInDown 1.2s ease-in-out;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards 0.1s;
 }
 
-.projects-header p {
+.projects-heading {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards 0.25s;
+}
+
+.projects-subtitle {
   font-size: 1.1rem;
-  color: #ccc;
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards 0.4s;
 }
 
 /* === Projects List === */
-.project-list {
-  max-width: 1000px;
+.projects-list {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 48px 80px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 
+/* === Project Card === */
 .project-card {
-  background-color: #1a1a1a;
-  border-left: 4px solid #ff9000;
-  padding: 30px 25px;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+  border-color: rgba(167, 139, 250, 0.2);
+  box-shadow: 0 8px 40px rgba(167, 139, 250, 0.06);
 }
 
-.project-card h2 {
-  font-size: 1.8rem;
-  color: #ffffff;
-  margin-bottom: 10px;
+.project-card.active {
+  border-color: rgba(167, 139, 250, 0.3);
+  background: rgba(167, 139, 250, 0.03);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 28px;
   cursor: pointer;
+  user-select: none;
 }
 
-.project-card p {
-  color: #bbbbbb;
-  font-size: 1rem;
+.project-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--accent-dim);
 }
 
-/* === Expandable Project Content === */
+.project-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.project-info h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.project-toggle {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.project-card.active .project-toggle {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.project-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+/* === Project Details (expandable) === */
 .project-details {
-  overflow: hidden;
   max-height: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-  opacity: 0;
-  margin-top: 15px;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card.active .project-details {
-  max-height: 1000px;
-  opacity: 1;
-}
-/* === Thumbnail image styling === */
-.project-thumbnail {
-  width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-   margin-right: 20px;    
-  margin-bottom: 20px;  
+  max-height: 800px;
 }
 
-.project-thumbnail:hover {
-  transform: scale(1.1);
+.details-inner {
+  padding: 0 28px 28px;
+  border-top: 1px solid var(--border-glass);
+  padding-top: 24px;
 }
 
-/* === Modal Container === */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1001;
+.detail-block {
+  margin-bottom: 20px;
+}
+
+.detail-block h3 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-block p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.detail-block ul {
+  list-style: none;
+}
+
+.detail-block li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.detail-block li::before {
+  content: '';
+  position: absolute;
   left: 0;
-  top: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+/* === Project Gallery === */
+.project-gallery {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.gallery-thumb {
+  width: 140px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border-glass);
+  transition: all var(--transition-smooth);
+}
+
+.gallery-thumb:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 8px 24px rgba(167, 139, 250, 0.15);
+}
+
+.gallery-thumb img {
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+  object-fit: cover;
+  display: block;
+}
+
+/* === Image Modal === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* === Modal Content (image) === */
+.modal.open {
+  display: flex;
+  opacity: 1;
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .modal-content {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #000;
-  animation: zoomIn 0.3s ease;
+  max-width: 85%;
+  max-height: 85vh;
+  border-radius: 16px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  animation: modalZoomIn 0.3s ease forwards;
 }
 
-/* === Close Button === */
+@keyframes modalZoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
 .modal-close {
   position: absolute;
-  top: 30px;
-  right: 40px;
+  top: 24px;
+  right: 32px;
+  background: none;
+  border: none;
   color: #fff;
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 2rem;
   cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background var(--transition-fast);
 }
 
-/* === Zoom Animation === */
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-
-/* === Images in Project Details === */
-.project-details img {
-  width: 100%;
-  max-width: 200px;
-  border-radius: 5px;
-  margin: 10px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+/* === Footer === */
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 48px;
+  border-top: 1px solid var(--border-glass);
 }
 
-/* === Fade Animation for Heading === */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* === Keyframes === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* === Responsive === */
-@media screen and (max-width: 768px) {
-  .big-heading {
-    font-size: 8vw;
+@media (max-width: 768px) {
+  .navbar { padding: 16px 24px; }
+  .navbar.scrolled { padding: 12px 24px; }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.97);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    padding: 100px 32px 32px;
+    gap: 6px;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 1px solid var(--border-glass);
   }
 
-  .project-card h2 {
-    font-size: 1.4rem;
+  .nav-links.open { right: 0; }
+
+  .nav-link { font-size: 1.1rem; padding: 14px 18px; }
+
+  .nav-toggle { display: flex; }
+
+  .projects-hero { padding: 120px 24px 60px; }
+
+  .projects-list { padding: 0 24px 60px; }
+
+  .project-card-header { padding: 20px 20px; gap: 14px; }
+
+  .details-inner { padding: 0 20px 20px; padding-top: 20px; }
+
+  .project-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+  }
+
+  .project-info h2 { font-size: 1.1rem; }
+  .project-info p { font-size: 0.82rem; }
+
+  .gallery-thumb {
+    width: 110px;
+    height: 80px;
   }
 }

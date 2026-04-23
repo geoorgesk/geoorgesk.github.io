@@ -3,130 +3,214 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects - George SK</title>
+  <title>Projects — George S Kakkassery</title>
+  <meta name="description" content="Explore projects built by George S Kakkassery — NxtStop, Interactive Solar System, and more." />
   <link rel="stylesheet" href="style_project.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- 🍔 Hamburger Menu -->
-  <div class="hamburger-container">
-    <div class="hamburger-icon" onclick="toggleMenu()">☰</div>
-    <div class="hamburger-menu" id="hamburgerMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="project.html">Projects</a>
-    </div>
-  </div>
+  <!-- Ambient background orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-  <!-- 🧱 Header -->
-  <section class="projects-header">
-    <h1 class="big-heading">Projects</h1>
-    <p>Here are some of the things I've built or contributed to. Click to learn more!</p>
-  </section>
-
-  <!-- 📁 Project List -->
-  <section class="project-list">
-
-    <!-- NxtStop Project -->
-    <div class="project-card" onclick="toggleDetails(this)">
-      <h2>🚌 NxtStop</h2>
-      <p>A rural bus tracking web app to help daily commuters access private buses in real time.</p>
-
-      <div class="project-details">
-        <p><strong>Project Overview:</strong> NxtStop is designed to improve rural transportation by tracking private buses, showing arrival times, and providing route info. It’s a lightweight solution using HTML, CSS, and JavaScript.</p>
-        <p><strong>Features:</strong></p>
-        <ul>
-          <li>Live bus location preview</li>
-          <li>Searchable bus routes</li>
-          <li>Lightweight UI for rural users</li>
-        </ul>
-      <div class="thumbnail-wrapper">
-  <img src="nxtstop.jpg" class="project-thumbnail" onclick="openModal(event, this)" />
-</div>
-
-<div class="thumbnail-wrapper">
-  <img src="nxtstop1.png" class="project-thumbnail" onclick="openModal(event, this)" />
-</div>
-
-
-
-      </div>
-    </div>
-
-<!-- Solar System Project -->
-<div class="project-card" onclick="toggleDetails(this)">
-  <h2>🌌 Interactive Solar System</h2>
-  <p>An interactive Solar System that shows planet facts and random fun facts, with an ESP32 and DHT11 sensor to auto-cycle planets based on environmental data.</p>
-
-  <div class="project-details">
-    <p><strong>Project Overview:</strong> An interactive Solar System that shows planet facts and random fun facts, with an ESP32 and DHT11 sensor to auto-cycle planets based on environmental data.</p>
-    <p><strong>Features:</strong></p>
-    <ul>
-      <li>Interactive Planet Facts – Click on any planet to view detailed facts and a random fun fact.</li>
-      <li>Auto Planet Selection – ESP32 with DHT11 sensor cycles planets automatically using temperature and humidity data.</li>
-      <li>Engaging Learning Experience – Combines astronomy with IoT for an educational and fun interface.</li>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">GSK<span class="logo-dot">.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="project.html" class="nav-link active">Projects</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
     </ul>
-    <div class="thumbnail-wrapper">
-      <img src="image-2.png" class="project-thumbnail" onclick="openModal(event, this)" />
-    </div>
-    <div class="thumbnail-wrapper">
-      <img src="image-1.png" class="project-thumbnail" onclick="openModal(event, this)" />
-    </div>
-  </div>
-</div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-
-    <div class="project-card">
-      <h2>📊 Push-Up Tracker</h2>
-      <p>A basic personal fitness tracker built to log push-ups and visualize progress over time.</p>
+  <!-- Page Header -->
+  <section class="projects-hero">
+    <div class="projects-hero-content">
+      <span class="section-tag">Portfolio</span>
+      <h1 class="projects-heading">Projects</h1>
+      <p class="projects-subtitle">Here are some of the things I've built or contributed to. Click to learn more!</p>
     </div>
+  </section>
+
+  <!-- Projects List -->
+  <section class="projects-list">
+
+    <!-- NxtStop -->
+    <article class="project-card" id="nxtstopCard">
+      <div class="project-card-header" onclick="toggleDetails(this.parentElement)">
+        <div class="project-icon">🚌</div>
+        <div class="project-info">
+          <h2>NxtStop</h2>
+          <p>A rural bus tracking web app to help daily commuters access private buses in real time.</p>
+        </div>
+        <div class="project-toggle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="project-details">
+        <div class="details-inner">
+          <div class="detail-block">
+            <h3>Project Overview</h3>
+            <p>NxtStop is designed to improve rural transportation by tracking private buses, showing arrival times, and providing route info. It's a lightweight solution using HTML, CSS, and JavaScript.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Key Features</h3>
+            <ul>
+              <li>Live bus location preview</li>
+              <li>Searchable bus routes</li>
+              <li>Lightweight UI for rural users</li>
+            </ul>
+          </div>
+          <div class="project-gallery">
+            <div class="gallery-thumb" onclick="openModal(event, this)">
+              <img src="nxtstop.jpg" alt="NxtStop Screenshot 1" loading="lazy" />
+            </div>
+            <div class="gallery-thumb" onclick="openModal(event, this)">
+              <img src="nxtstop1.png" alt="NxtStop Screenshot 2" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Solar System -->
+    <article class="project-card" id="solarSystemCard">
+      <div class="project-card-header" onclick="toggleDetails(this.parentElement)">
+        <div class="project-icon">🌌</div>
+        <div class="project-info">
+          <h2>Interactive Solar System</h2>
+          <p>An interactive Solar System that shows planet facts and random fun facts, with an ESP32 and DHT11 sensor to auto-cycle planets based on environmental data.</p>
+        </div>
+        <div class="project-toggle">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+      </div>
+      <div class="project-details">
+        <div class="details-inner">
+          <div class="detail-block">
+            <h3>Project Overview</h3>
+            <p>An interactive Solar System that shows planet facts and random fun facts, with an ESP32 and DHT11 sensor to auto-cycle planets based on environmental data.</p>
+          </div>
+          <div class="detail-block">
+            <h3>Key Features</h3>
+            <ul>
+              <li>Interactive Planet Facts – Click on any planet to view detailed facts and a random fun fact.</li>
+              <li>Auto Planet Selection – ESP32 with DHT11 sensor cycles planets automatically using temperature and humidity data.</li>
+              <li>Engaging Learning Experience – Combines astronomy with IoT for an educational and fun interface.</li>
+            </ul>
+          </div>
+          <div class="project-gallery">
+            <div class="gallery-thumb" onclick="openModal(event, this)">
+              <img src="image-2.png" alt="Solar System Screenshot 1" loading="lazy" />
+            </div>
+            <div class="gallery-thumb" onclick="openModal(event, this)">
+              <img src="image-1.png" alt="Solar System Screenshot 2" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Push-Up Tracker -->
+    <article class="project-card" id="pushupCard">
+      <div class="project-card-header">
+        <div class="project-icon">📊</div>
+        <div class="project-info">
+          <h2>Push-Up Tracker</h2>
+          <p>A basic personal fitness tracker built to log push-ups and visualize progress over time.</p>
+        </div>
+        <div class="project-badge">Coming Soon</div>
+      </div>
+    </article>
 
   </section>
 
-  <!-- 🔁 JavaScript for Toggle -->
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+    <img class="modal-content" id="modalImg" alt="Enlarged Project Image" />
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 George SK. All rights reserved.</p>
+    </div>
+  </footer>
+
   <script>
-  // Toggle hamburger menu
-  function toggleMenu() {
-    const menu = document.getElementById('hamburgerMenu');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-  // Close menu if clicked outside
-  window.addEventListener('click', function (e) {
-    const menu = document.getElementById('hamburgerMenu');
-    const icon = document.querySelector('.hamburger-icon');
-    if (!icon.contains(e.target) && !menu.contains(e.target)) {
-      menu.style.display = 'none';
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      navToggle.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+      });
+    });
+
+    // Toggle project details
+    function toggleDetails(card) {
+      // Close other cards
+      document.querySelectorAll('.project-card.active').forEach(c => {
+        if (c !== card) c.classList.remove('active');
+      });
+      card.classList.toggle('active');
     }
-  });
 
-  // Toggle project details
-  function toggleDetails(card) {
-    card.classList.toggle('active');
-  }
+    // Image modal
+    function openModal(event, thumb) {
+      event.stopPropagation();
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const img = thumb.querySelector('img');
+      modal.classList.add('open');
+      modalImg.src = img.src;
+      document.body.style.overflow = 'hidden';
+    }
 
-  // Open image modal
- function openModal(event, image) {
-  event.stopPropagation(); // ⛔ Prevents card toggle
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
-  modal.style.display = "flex";
-  modalImg.src = image.src;
-}
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
 
+    // Close modal with Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
 
-  // Close image modal
-  function closeModal() {
-    document.getElementById("imageModal").style.display = "none";
-  }
-</script>
+    // Scroll reveal for project cards
+    const cards = document.querySelectorAll('.project-card');
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${index * 0.1}s`;
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, { threshold: 0.1 });
 
-  <!-- 🔍 Image Modal -->
-<div id="imageModal" class="modal">
-  <span class="modal-close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImg" alt="Enlarged Project Image" />
-</div>
-
+    cards.forEach(card => cardObserver.observe(card));
+  </script>
 
 </body>
 </html>
